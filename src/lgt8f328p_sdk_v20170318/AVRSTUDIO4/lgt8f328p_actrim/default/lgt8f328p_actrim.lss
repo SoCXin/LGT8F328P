@@ -1,0 +1,921 @@
+
+lgt8f328p_actrim.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000046  00800100  000003f2  00000486  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000003f2  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000001  00800146  00800146  000004cc  2**0
+                  ALLOC
+  3 .debug_aranges 00000060  00000000  00000000  000004cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 00000164  00000000  00000000  0000052c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000006d2  00000000  00000000  00000690  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000035d  00000000  00000000  00000d62  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000070f  00000000  00000000  000010bf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000150  00000000  00000000  000017d0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000268  00000000  00000000  00001920  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000206  00000000  00000000  00001b88  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000018  00000000  00000000  00001d8e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e2 ef       	ldi	r30, 0xF2	; 242
+  7c:	f3 e0       	ldi	r31, 0x03	; 3
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <.do_copy_data_start>
+
+00000080 <.do_copy_data_loop>:
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+
+00000084 <.do_copy_data_start>:
+  84:	a6 34       	cpi	r26, 0x46	; 70
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <.do_copy_data_loop>
+
+0000008a <__do_clear_bss>:
+  8a:	11 e0       	ldi	r17, 0x01	; 1
+  8c:	a6 e4       	ldi	r26, 0x46	; 70
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a7 34       	cpi	r26, 0x47	; 71
+  96:	b1 07       	cpc	r27, r17
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 f1 00 	call	0x1e2	; 0x1e2 <main>
+  9e:	0c 94 f7 01 	jmp	0x3ee	; 0x3ee <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <usartInit>:
+// ----------------------------------------------------------------------
+// public: usart module initialization
+// ----------------------------------------------------------------------
+void usartInit(void)
+{
+	UCSR0A 	= (USART_MPCM0 << MPCM0) | (USART_U2X0 << U2X0);
+  a6:	10 92 c0 00 	sts	0x00C0, r1
+
+	UCSR0C = (USART_UMSEL0 << UMSEL00 ) | (USART_UPM0 << UPM00) | (USART_USBS0 << USBS0) |\
+  aa:	86 e0       	ldi	r24, 0x06	; 6
+  ac:	80 93 c2 00 	sts	0x00C2, r24
+			((USART_UCSZ0 & 3) << UCSZ00 ) | (USART_UCPOL0 << UCPOL0);
+
+	UCSR0B = (USART_RXEN << RXEN0) | (USART_TXEN << TXEN0) | (USART_UCSZ0 & 0x4) |\
+  b0:	88 e1       	ldi	r24, 0x18	; 24
+  b2:	80 93 c1 00 	sts	0x00C1, r24
+			(USART_RXC << RXCIE0) | (USART_TXC << TXCIE0) | (USART_UDRE << UDRIE0);
+	
+	UBRR0H = (USART_UBRR >> 8) & 0xff;
+  b6:	10 92 c5 00 	sts	0x00C5, r1
+	UBRR0L = USART_UBRR & 0xff;
+  ba:	83 e3       	ldi	r24, 0x33	; 51
+  bc:	80 93 c4 00 	sts	0x00C4, r24
+}
+  c0:	08 95       	ret
+
+000000c2 <usartPutChar>:
+
+// ----------------------------------------------------------------------
+// public: send a char
+// ----------------------------------------------------------------------
+void usartPutChar(uint8_t u8Char)
+{
+  c2:	98 2f       	mov	r25, r24
+	while(!(UCSR0A & (1 << UDRE0)));
+  c4:	80 91 c0 00 	lds	r24, 0x00C0
+  c8:	85 ff       	sbrs	r24, 5
+  ca:	fc cf       	rjmp	.-8      	; 0xc4 <usartPutChar+0x2>
+
+	UDR0 = u8Char;
+  cc:	90 93 c6 00 	sts	0x00C6, r25
+}
+  d0:	08 95       	ret
+
+000000d2 <usartGetChar>:
+// ----------------------------------------------------------------------
+// public: get and return a char
+// ----------------------------------------------------------------------
+uint8_t usartGetChar()
+{
+	while(!(UCSR0A & (1 << RXC0)));
+  d2:	80 91 c0 00 	lds	r24, 0x00C0
+  d6:	87 ff       	sbrs	r24, 7
+  d8:	fc cf       	rjmp	.-8      	; 0xd2 <usartGetChar>
+
+	return (uint8_t)UDR0;
+  da:	80 91 c6 00 	lds	r24, 0x00C6
+}
+  de:	08 95       	ret
+
+000000e0 <usartPutStr>:
+
+// ----------------------------------------------------------------------
+// public: send a string
+// ----------------------------------------------------------------------
+void usartPutStr(char *pStr)
+{
+  e0:	fc 01       	movw	r30, r24
+  e2:	07 c0       	rjmp	.+14     	; 0xf2 <usartPutStr+0x12>
+// ----------------------------------------------------------------------
+// public: send a char
+// ----------------------------------------------------------------------
+void usartPutChar(uint8_t u8Char)
+{
+	while(!(UCSR0A & (1 << UDRE0)));
+  e4:	80 91 c0 00 	lds	r24, 0x00C0
+  e8:	85 ff       	sbrs	r24, 5
+  ea:	fc cf       	rjmp	.-8      	; 0xe4 <usartPutStr+0x4>
+{
+	char *p = pStr;
+
+	while(*p)
+	{
+		usartPutChar(*p++);
+  ec:	31 96       	adiw	r30, 0x01	; 1
+// ----------------------------------------------------------------------
+void usartPutChar(uint8_t u8Char)
+{
+	while(!(UCSR0A & (1 << UDRE0)));
+
+	UDR0 = u8Char;
+  ee:	90 93 c6 00 	sts	0x00C6, r25
+// ----------------------------------------------------------------------
+void usartPutStr(char *pStr)
+{
+	char *p = pStr;
+
+	while(*p)
+  f2:	90 81       	ld	r25, Z
+  f4:	99 23       	and	r25, r25
+  f6:	b1 f7       	brne	.-20     	; 0xe4 <usartPutStr+0x4>
+	{
+		usartPutChar(*p++);
+	}
+}
+  f8:	08 95       	ret
+
+000000fa <acRead>:
+#define	ac0Read()	((C0SR >> 5) & 0x01)
+#define	ac1Read()	((C1SR >> 5) & 0x01)
+
+uint8_t acRead(uint8_t acn)
+{
+	if(acn == 0)
+  fa:	88 23       	and	r24, r24
+  fc:	29 f4       	brne	.+10     	; 0x108 <acRead+0xe>
+		return ac0Read();
+  fe:	80 b7       	in	r24, 0x30	; 48
+ 100:	82 95       	swap	r24
+ 102:	86 95       	lsr	r24
+ 104:	81 70       	andi	r24, 0x01	; 1
+ 106:	08 95       	ret
+
+	return ac1Read();
+ 108:	8f b1       	in	r24, 0x0f	; 15
+ 10a:	82 95       	swap	r24
+ 10c:	86 95       	lsr	r24
+ 10e:	81 70       	andi	r24, 0x01	; 1
+}
+ 110:	08 95       	ret
+
+00000112 <acReadStable>:
+//	return :
+//		0x80	- stable 0
+//		0x81	- stable 1
+//		0x00	- unstable
+uint8_t acReadStable(uint8_t acn)
+{
+ 112:	48 2f       	mov	r20, r24
+#define	ac0Read()	((C0SR >> 5) & 0x01)
+#define	ac1Read()	((C1SR >> 5) & 0x01)
+
+uint8_t acRead(uint8_t acn)
+{
+	if(acn == 0)
+ 114:	88 23       	and	r24, r24
+ 116:	39 f4       	brne	.+14     	; 0x126 <acReadStable+0x14>
+		return ac0Read();
+ 118:	80 b7       	in	r24, 0x30	; 48
+ 11a:	82 95       	swap	r24
+ 11c:	86 95       	lsr	r24
+ 11e:	81 70       	andi	r24, 0x01	; 1
+ 120:	30 e0       	ldi	r19, 0x00	; 0
+ 122:	20 e0       	ldi	r18, 0x00	; 0
+ 124:	06 c0       	rjmp	.+12     	; 0x132 <acReadStable+0x20>
+
+	return ac1Read();
+ 126:	8f b1       	in	r24, 0x0f	; 15
+ 128:	f8 cf       	rjmp	.-16     	; 0x11a <acReadStable+0x8>
+{
+	uint8_t acTgcnt = 0;
+	uint8_t acTmp = acRead(acn);
+
+	for(uint8_t i = 0; i < 0xff; i++) {
+		if(acTgcnt > 0x3f)
+ 12a:	30 34       	cpi	r19, 0x40	; 64
+ 12c:	10 f0       	brcs	.+4      	; 0x132 <acReadStable+0x20>
+ 12e:	80 e0       	ldi	r24, 0x00	; 0
+ 130:	08 95       	ret
+#define	ac0Read()	((C0SR >> 5) & 0x01)
+#define	ac1Read()	((C1SR >> 5) & 0x01)
+
+uint8_t acRead(uint8_t acn)
+{
+	if(acn == 0)
+ 132:	44 23       	and	r20, r20
+ 134:	11 f4       	brne	.+4      	; 0x13a <acReadStable+0x28>
+		return ac0Read();
+ 136:	90 b7       	in	r25, 0x30	; 48
+ 138:	01 c0       	rjmp	.+2      	; 0x13c <acReadStable+0x2a>
+
+	return ac1Read();
+ 13a:	9f b1       	in	r25, 0x0f	; 15
+ 13c:	92 95       	swap	r25
+ 13e:	96 95       	lsr	r25
+ 140:	91 70       	andi	r25, 0x01	; 1
+
+	for(uint8_t i = 0; i < 0xff; i++) {
+		if(acTgcnt > 0x3f)
+			return 0;
+
+		if(acTmp != acRead(acn)) {
+ 142:	89 17       	cp	r24, r25
+ 144:	51 f0       	breq	.+20     	; 0x15a <acReadStable+0x48>
+			i = 0;
+			acTgcnt++;
+ 146:	3f 5f       	subi	r19, 0xFF	; 255
+#define	ac0Read()	((C0SR >> 5) & 0x01)
+#define	ac1Read()	((C1SR >> 5) & 0x01)
+
+uint8_t acRead(uint8_t acn)
+{
+	if(acn == 0)
+ 148:	44 23       	and	r20, r20
+ 14a:	11 f4       	brne	.+4      	; 0x150 <acReadStable+0x3e>
+		return ac0Read();
+ 14c:	80 b7       	in	r24, 0x30	; 48
+ 14e:	01 c0       	rjmp	.+2      	; 0x152 <acReadStable+0x40>
+
+	return ac1Read();
+ 150:	8f b1       	in	r24, 0x0f	; 15
+ 152:	82 95       	swap	r24
+ 154:	86 95       	lsr	r24
+ 156:	81 70       	andi	r24, 0x01	; 1
+ 158:	20 e0       	ldi	r18, 0x00	; 0
+uint8_t acReadStable(uint8_t acn)
+{
+	uint8_t acTgcnt = 0;
+	uint8_t acTmp = acRead(acn);
+
+	for(uint8_t i = 0; i < 0xff; i++) {
+ 15a:	2f 5f       	subi	r18, 0xFF	; 255
+ 15c:	2f 3f       	cpi	r18, 0xFF	; 255
+ 15e:	29 f7       	brne	.-54     	; 0x12a <acReadStable+0x18>
+			acTgcnt++;
+			acTmp = acRead(acn);
+		}
+	}
+
+	return 0x80 | acTmp;
+ 160:	80 68       	ori	r24, 0x80	; 128
+}
+ 162:	08 95       	ret
+
+00000164 <acDoCalibration>:
+// do calibration work
+// return:
+//		0x00	- failed
+//		others	- C0TR
+uint8_t acDoCalibration(uint8_t acn)
+{
+ 164:	1f 93       	push	r17
+ 166:	cf 93       	push	r28
+ 168:	df 93       	push	r29
+ 16a:	18 2f       	mov	r17, r24
+	uint8_t acdir;
+	uint8_t failed = 0;
+	
+	volatile uint8_t *pCXTR = (acn == 0) ? &C0TR : &C1TR; 
+ 16c:	88 23       	and	r24, r24
+ 16e:	19 f0       	breq	.+6      	; 0x176 <acDoCalibration+0x12>
+ 170:	cb e5       	ldi	r28, 0x5B	; 91
+ 172:	d0 e0       	ldi	r29, 0x00	; 0
+ 174:	02 c0       	rjmp	.+4      	; 0x17a <acDoCalibration+0x16>
+ 176:	c2 e5       	ldi	r28, 0x52	; 82
+ 178:	d0 e0       	ldi	r29, 0x00	; 0
+
+	// trimming data initilize
+	*pCXTR = 0xC0;
+ 17a:	80 ec       	ldi	r24, 0xC0	; 192
+ 17c:	88 83       	st	Y, r24
+
+	acdir = acReadStable(acn);
+ 17e:	81 2f       	mov	r24, r17
+ 180:	0e 94 89 00 	call	0x112	; 0x112 <acReadStable>
+
+	// compensate for posedge
+	if(acdir == 0x80) {
+ 184:	80 38       	cpi	r24, 0x80	; 128
+ 186:	51 f4       	brne	.+20     	; 0x19c <acDoCalibration+0x38>
+		*pCXTR = 0x80;
+ 188:	88 83       	st	Y, r24
+		//_delay_us(10);
+	}
+
+	while(acdir == 0x80) {
+		if(*pCXTR >= 0xBF) {
+ 18a:	88 81       	ld	r24, Y
+ 18c:	8f 3b       	cpi	r24, 0xBF	; 191
+ 18e:	10 f5       	brcc	.+68     	; 0x1d4 <acDoCalibration+0x70>
+			failed = 1;
+			break;
+		} else if(acReadStable(acn) == 0x81) {
+ 190:	81 2f       	mov	r24, r17
+ 192:	0e 94 89 00 	call	0x112	; 0x112 <acReadStable>
+ 196:	81 38       	cpi	r24, 0x81	; 129
+ 198:	21 f4       	brne	.+8      	; 0x1a2 <acDoCalibration+0x3e>
+ 19a:	1e c0       	rjmp	.+60     	; 0x1d8 <acDoCalibration+0x74>
+			//_delay_us(10);
+		}
+	}
+
+	// compenstate for negedge
+	while(acdir == 0x81) {
+ 19c:	81 38       	cpi	r24, 0x81	; 129
+ 19e:	49 f0       	breq	.+18     	; 0x1b2 <acDoCalibration+0x4e>
+ 1a0:	1b c0       	rjmp	.+54     	; 0x1d8 <acDoCalibration+0x74>
+		if(*pCXTR >= 0xBF) {
+			failed = 1;
+			break;
+		} else if(acReadStable(acn) == 0x81) {
+			break;
+		} else if(acReadStable(acn) == 0x00) {
+ 1a2:	81 2f       	mov	r24, r17
+ 1a4:	0e 94 89 00 	call	0x112	; 0x112 <acReadStable>
+ 1a8:	88 23       	and	r24, r24
+ 1aa:	b1 f0       	breq	.+44     	; 0x1d8 <acDoCalibration+0x74>
+			acdir = 0x00;
+			break;
+		} else {
+			*pCXTR = *pCXTR + 1;
+ 1ac:	88 81       	ld	r24, Y
+ 1ae:	8f 5f       	subi	r24, 0xFF	; 255
+ 1b0:	eb cf       	rjmp	.-42     	; 0x188 <acDoCalibration+0x24>
+		}
+	}
+
+	// compenstate for negedge
+	while(acdir == 0x81) {
+		if(*pCXTR == 0xFF) {
+ 1b2:	88 81       	ld	r24, Y
+ 1b4:	8f 3f       	cpi	r24, 0xFF	; 255
+ 1b6:	71 f0       	breq	.+28     	; 0x1d4 <acDoCalibration+0x70>
+			failed = 1;
+			break;
+		} else if(acReadStable(acn) == 0x80) {
+ 1b8:	81 2f       	mov	r24, r17
+ 1ba:	0e 94 89 00 	call	0x112	; 0x112 <acReadStable>
+ 1be:	80 38       	cpi	r24, 0x80	; 128
+ 1c0:	59 f0       	breq	.+22     	; 0x1d8 <acDoCalibration+0x74>
+			break;
+		} else if(acReadStable(acn) == 0x00) {
+ 1c2:	81 2f       	mov	r24, r17
+ 1c4:	0e 94 89 00 	call	0x112	; 0x112 <acReadStable>
+ 1c8:	88 23       	and	r24, r24
+ 1ca:	31 f0       	breq	.+12     	; 0x1d8 <acDoCalibration+0x74>
+			acdir = 0x00;
+			break;
+		} else {
+			*pCXTR = *pCXTR + 1;
+ 1cc:	88 81       	ld	r24, Y
+ 1ce:	8f 5f       	subi	r24, 0xFF	; 255
+ 1d0:	88 83       	st	Y, r24
+ 1d2:	ef cf       	rjmp	.-34     	; 0x1b2 <acDoCalibration+0x4e>
+	}
+
+	if(failed == 1) {
+		// failed for ac0 trimming
+		// so disable trimming circuit
+		*pCXTR = 0xC0; // recommended value
+ 1d4:	80 ec       	ldi	r24, 0xC0	; 192
+ 1d6:	88 83       	st	Y, r24
+	}
+
+	return *pCXTR;
+ 1d8:	88 81       	ld	r24, Y
+}
+ 1da:	df 91       	pop	r29
+ 1dc:	cf 91       	pop	r28
+ 1de:	1f 91       	pop	r17
+ 1e0:	08 95       	ret
+
+000001e2 <main>:
+//	drive PC2 = 0 for test AC0
+//	drive PC2 = 1 for test AC1
+//
+// ======================================================
+int main(void)
+{
+ 1e2:	ef 92       	push	r14
+ 1e4:	ff 92       	push	r15
+ 1e6:	1f 93       	push	r17
+ 1e8:	df 93       	push	r29
+ 1ea:	cf 93       	push	r28
+ 1ec:	cd b7       	in	r28, 0x3d	; 61
+ 1ee:	de b7       	in	r29, 0x3e	; 62
+ 1f0:	2a 97       	sbiw	r28, 0x0a	; 10
+ 1f2:	0f b6       	in	r0, 0x3f	; 63
+ 1f4:	f8 94       	cli
+ 1f6:	de bf       	out	0x3e, r29	; 62
+ 1f8:	0f be       	out	0x3f, r0	; 63
+ 1fa:	cd bf       	out	0x3d, r28	; 61
+	char data[10];
+	uint8_t acn = 0;
+
+	sysClockPrescale(SYSCLK_DIV_2);
+ 1fc:	81 e0       	ldi	r24, 0x01	; 1
+ 1fe:	0e 94 b5 01 	call	0x36a	; 0x36a <sysClockPrescale>
+
+
+	// enable PC2's pullup
+	PORTC |= 0x04;
+ 202:	42 9a       	sbi	0x08, 2	; 8
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+ 204:	80 e9       	ldi	r24, 0x90	; 144
+ 206:	91 e0       	ldi	r25, 0x01	; 1
+ 208:	01 97       	sbiw	r24, 0x01	; 1
+ 20a:	f1 f7       	brne	.-4      	; 0x208 <main+0x26>
+
+	_delay_us(100);
+
+	// which AC for test?
+	if((PINC & 0x04) == 0x04)
+ 20c:	86 b1       	in	r24, 0x06	; 6
+ 20e:	90 e0       	ldi	r25, 0x00	; 0
+ 210:	96 95       	lsr	r25
+ 212:	87 95       	ror	r24
+ 214:	96 95       	lsr	r25
+ 216:	87 95       	ror	r24
+ 218:	18 2f       	mov	r17, r24
+ 21a:	11 70       	andi	r17, 0x01	; 1
+		acn = 1;
+
+	// initial USART for terminal
+	usartInit();
+ 21c:	0e 94 53 00 	call	0xa6	; 0xa6 <usartInit>
+
+	// internal reference
+	ADMUX = 0xD0;	// internal 1.024V BGR
+ 220:	80 ed       	ldi	r24, 0xD0	; 208
+ 222:	80 93 7c 00 	sts	0x007C, r24
+	ADCSRC |= (1 << ADTM);	// for test purpose
+ 226:	80 91 7d 00 	lds	r24, 0x007D
+ 22a:	81 60       	ori	r24, 0x01	; 1
+ 22c:	80 93 7d 00 	sts	0x007D, r24
+
+	//VCAL = 0x00;
+
+	// DAC source from IVREF
+	DACON = (1 << DACEN) | 0x2;
+ 230:	8a e0       	ldi	r24, 0x0A	; 10
+ 232:	80 93 a0 00 	sts	0x00A0, r24
+
+	// minimal DAC output
+	DALR = 0;
+ 236:	10 92 a1 00 	sts	0x00A1, r1
+
+	// AC inputs settings
+	// POS : DAC's output
+	// NEG : ACXN/PD7
+	if(acn == 0) {
+ 23a:	11 23       	and	r17, r17
+ 23c:	29 f4       	brne	.+10     	; 0x248 <main+0x66>
+		C0XR = (1 << C0FEN) | (3 << C0FS) | (1 << C0OE);
+ 23e:	87 e4       	ldi	r24, 0x47	; 71
+ 240:	81 bf       	out	0x31, r24	; 49
+		C0SR = (1 << C0BG);
+ 242:	80 e4       	ldi	r24, 0x40	; 64
+ 244:	80 bf       	out	0x30, r24	; 48
+ 246:	04 c0       	rjmp	.+8      	; 0x250 <main+0x6e>
+	} else {	
+		C1XR = (1 << C1FEN) | (3 << C1FS) | (1 << C1OE);
+ 248:	87 e4       	ldi	r24, 0x47	; 71
+ 24a:	8a bb       	out	0x1a, r24	; 26
+		C1SR = (1 << C1BG);	
+ 24c:	80 e4       	ldi	r24, 0x40	; 64
+ 24e:	8f b9       	out	0x0f, r24	; 15
+	}
+
+	// drive ACXN to ground (by drive PD7)
+	DDRD |= 0x80;
+ 250:	57 9a       	sbi	0x0a, 7	; 10
+	PORTD &= 0x7f;
+ 252:	5f 98       	cbi	0x0b, 7	; 11
+
+	acDoCalibration(acn);
+ 254:	81 2f       	mov	r24, r17
+ 256:	0e 94 b2 00 	call	0x164	; 0x164 <acDoCalibration>
+
+	// release PD7
+	DDRD &= 0x7f;
+ 25a:	57 98       	cbi	0x0a, 7	; 10
+ 25c:	7e 01       	movw	r14, r28
+ 25e:	08 94       	sec
+ 260:	e1 1c       	adc	r14, r1
+ 262:	f1 1c       	adc	r15, r1
+
+	if(acn == 0) {
+ 264:	11 23       	and	r17, r17
+ 266:	51 f4       	brne	.+20     	; 0x27c <main+0x9a>
+		usartPutStr("\r\n AC0 trimming done!");
+ 268:	80 e0       	ldi	r24, 0x00	; 0
+ 26a:	91 e0       	ldi	r25, 0x01	; 1
+ 26c:	0e 94 70 00 	call	0xe0	; 0xe0 <usartPutStr>
+		usartPutStr("\r\n C0TR = 0x");
+ 270:	86 e1       	ldi	r24, 0x16	; 22
+ 272:	91 e0       	ldi	r25, 0x01	; 1
+ 274:	0e 94 70 00 	call	0xe0	; 0xe0 <usartPutStr>
+		utoa(C0TR, data, 16);
+ 278:	82 b7       	in	r24, 0x32	; 50
+ 27a:	09 c0       	rjmp	.+18     	; 0x28e <main+0xac>
+	} else {
+		usartPutStr("\r\n AC1 trimming done!");
+ 27c:	83 e2       	ldi	r24, 0x23	; 35
+ 27e:	91 e0       	ldi	r25, 0x01	; 1
+ 280:	0e 94 70 00 	call	0xe0	; 0xe0 <usartPutStr>
+		usartPutStr("\r\n C1TR = 0x");
+ 284:	89 e3       	ldi	r24, 0x39	; 57
+ 286:	91 e0       	ldi	r25, 0x01	; 1
+ 288:	0e 94 70 00 	call	0xe0	; 0xe0 <usartPutStr>
+		utoa(C1TR, data, 16);
+ 28c:	8b b7       	in	r24, 0x3b	; 59
+ 28e:	90 e0       	ldi	r25, 0x00	; 0
+ 290:	b7 01       	movw	r22, r14
+ 292:	40 e1       	ldi	r20, 0x10	; 16
+ 294:	50 e0       	ldi	r21, 0x00	; 0
+ 296:	0e 94 bd 01 	call	0x37a	; 0x37a <utoa>
+	}
+
+	usartPutStr(data);
+ 29a:	ce 01       	movw	r24, r28
+ 29c:	01 96       	adiw	r24, 0x01	; 1
+ 29e:	0e 94 70 00 	call	0xe0	; 0xe0 <usartPutStr>
+	
+	// bingo...
+	while(1) {
+		__asm__ __volatile__ ("nop" ::);
+ 2a2:	00 00       	nop
+ 2a4:	fe cf       	rjmp	.-4      	; 0x2a2 <main+0xc0>
+
+000002a6 <sysCLRI>:
+// ----------------------------------------------------------------------
+// public: backup SREG register, then disable global interrupt
+// ----------------------------------------------------------------------
+void sysCLRI()
+{
+    __bk_sreg = SREG;
+ 2a6:	8f b7       	in	r24, 0x3f	; 63
+ 2a8:	80 93 46 01 	sts	0x0146, r24
+    cli();
+ 2ac:	f8 94       	cli
+}
+ 2ae:	08 95       	ret
+
+000002b0 <sysRESI>:
+// ----------------------------------------------------------------------
+// public: restore SREG register, so restore previous interrupt settings
+// ----------------------------------------------------------------------
+void sysRESI()
+{
+    SREG = __bk_sreg;
+ 2b0:	80 91 46 01 	lds	r24, 0x0146
+ 2b4:	8f bf       	out	0x3f, r24	; 63
+}
+ 2b6:	08 95       	ret
+
+000002b8 <sysSWDDisable>:
+// ----------------------------------------------------------------------
+// public: disalbe SWD/SWC interface to release PE0/2
+// ----------------------------------------------------------------------
+inline void sysSWDDisable()
+{
+    MCUSR = 0xff;
+ 2b8:	8f ef       	ldi	r24, 0xFF	; 255
+ 2ba:	84 bf       	out	0x34, r24	; 52
+    MCUSR = 0xff;
+ 2bc:	84 bf       	out	0x34, r24	; 52
+}
+ 2be:	08 95       	ret
+
+000002c0 <sysSWDEnable>:
+
+inline void sysSWDEnable()
+{
+    MCUSR = 0x7f;
+ 2c0:	8f e7       	ldi	r24, 0x7F	; 127
+ 2c2:	84 bf       	out	0x34, r24	; 52
+    MCUSR = 0x7f;
+ 2c4:	84 bf       	out	0x34, r24	; 52
+}
+ 2c6:	08 95       	ret
+
+000002c8 <sysAVREFDisable>:
+// ----------------------------------------------------------------------
+// public: disable AVREF to release PE6 for GPIO
+// ----------------------------------------------------------------------
+void sysAVREFDisable()
+{
+    uint8_t btmp = PMX2 | (1 << E6EN);
+ 2c8:	e0 ef       	ldi	r30, 0xF0	; 240
+ 2ca:	f0 e0       	ldi	r31, 0x00	; 0
+ 2cc:	80 81       	ld	r24, Z
+ 2ce:	82 60       	ori	r24, 0x02	; 2
+    PMX2 = 0x80;
+ 2d0:	90 e8       	ldi	r25, 0x80	; 128
+ 2d2:	90 83       	st	Z, r25
+    PMX2 = btmp;
+ 2d4:	80 83       	st	Z, r24
+}
+ 2d6:	08 95       	ret
+
+000002d8 <sysAVREFEnable>:
+
+void sysAVREFEnable()
+{
+    uint8_t btmp = PMX2 & ~(1 << E6EN);
+ 2d8:	e0 ef       	ldi	r30, 0xF0	; 240
+ 2da:	f0 e0       	ldi	r31, 0x00	; 0
+ 2dc:	80 81       	ld	r24, Z
+ 2de:	8d 7f       	andi	r24, 0xFD	; 253
+    PMX2 = 0x80;
+ 2e0:	90 e8       	ldi	r25, 0x80	; 128
+ 2e2:	90 83       	st	Z, r25
+    PMX2 = btmp;
+ 2e4:	80 83       	st	Z, r24
+}
+ 2e6:	08 95       	ret
+
+000002e8 <sysEXRESETDisable>:
+// ----------------------------------------------------------------------
+// public: disable EXRESET to release PC6 for GPIO
+// ----------------------------------------------------------------------
+void sysEXRESETDisable()
+{
+    uint8_t btmp = PMX2 | (1 << C6EN);
+ 2e8:	e0 ef       	ldi	r30, 0xF0	; 240
+ 2ea:	f0 e0       	ldi	r31, 0x00	; 0
+ 2ec:	80 81       	ld	r24, Z
+ 2ee:	81 60       	ori	r24, 0x01	; 1
+    PMX2 = 0x80;
+ 2f0:	90 e8       	ldi	r25, 0x80	; 128
+ 2f2:	90 83       	st	Z, r25
+    PMX2 = btmp;
+ 2f4:	80 83       	st	Z, r24
+}
+ 2f6:	08 95       	ret
+
+000002f8 <sysEXRESETEnable>:
+
+void sysEXRESETEnable()
+{
+    uint8_t btmp = PMX2 & ~(1 << C6EN);
+ 2f8:	e0 ef       	ldi	r30, 0xF0	; 240
+ 2fa:	f0 e0       	ldi	r31, 0x00	; 0
+ 2fc:	80 81       	ld	r24, Z
+ 2fe:	8e 7f       	andi	r24, 0xFE	; 254
+    PMX2 = 0x80;
+ 300:	90 e8       	ldi	r25, 0x80	; 128
+ 302:	90 83       	st	Z, r25
+    PMX2 = btmp;
+ 304:	80 83       	st	Z, r24
+}
+ 306:	08 95       	ret
+
+00000308 <sysClockSource>:
+// ----------------------------------------------------------------------
+void sysClockSource(uint8_t mode)
+{
+    uint8_t btmp;
+  
+    if(mode == EXT_OSC) {
+ 308:	81 30       	cpi	r24, 0x01	; 1
+ 30a:	c1 f4       	brne	.+48     	; 0x33c <sysClockSource+0x34>
+            // enable external crystal
+            btmp = PMCR | 0x04;
+ 30c:	80 91 f2 00 	lds	r24, 0x00F2
+ 310:	84 60       	ori	r24, 0x04	; 4
+            PMCR = 0x80;
+ 312:	90 e8       	ldi	r25, 0x80	; 128
+ 314:	90 93 f2 00 	sts	0x00F2, r25
+            PMCR = btmp;
+ 318:	80 93 f2 00 	sts	0x00F2, r24
+    can be achieved.
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+ 31c:	8a e6       	ldi	r24, 0x6A	; 106
+ 31e:	8a 95       	dec	r24
+ 320:	f1 f7       	brne	.-4      	; 0x31e <sysClockSource+0x16>
+            
+            // waiting for crystal stable
+            _delay_us(20);
+
+            // switch to external crystal
+            btmp = (PMCR & 0x9f) | 0x20;
+ 322:	80 91 f2 00 	lds	r24, 0x00F2
+ 326:	8f 79       	andi	r24, 0x9F	; 159
+ 328:	80 62       	ori	r24, 0x20	; 32
+            PMCR = 0x80;
+ 32a:	90 93 f2 00 	sts	0x00F2, r25
+            PMCR = btmp;
+ 32e:	80 93 f2 00 	sts	0x00F2, r24
+
+            // set to right prescale
+            CLKPR = 0x80;
+ 332:	90 93 61 00 	sts	0x0061, r25
+            CLKPR = 0x00;	
+ 336:	10 92 61 00 	sts	0x0061, r1
+ 33a:	08 95       	ret
+    } else if(mode == INT_OSC) {
+ 33c:	88 23       	and	r24, r24
+ 33e:	a1 f4       	brne	.+40     	; 0x368 <sysClockSource+0x60>
+            // prescaler settings
+            CLKPR = 0x80;
+ 340:	90 e8       	ldi	r25, 0x80	; 128
+ 342:	90 93 61 00 	sts	0x0061, r25
+            CLKPR = 0x01;	
+ 346:	81 e0       	ldi	r24, 0x01	; 1
+ 348:	80 93 61 00 	sts	0x0061, r24
+
+            // switch to internal crystal
+            btmp = PMCR & 0x9f;
+ 34c:	80 91 f2 00 	lds	r24, 0x00F2
+ 350:	8f 79       	andi	r24, 0x9F	; 159
+            PMCR = 0x80;
+ 352:	90 93 f2 00 	sts	0x00F2, r25
+            PMCR = btmp;
+ 356:	80 93 f2 00 	sts	0x00F2, r24
+
+            // disable external crystal
+            btmp = PMCR & 0xfb;
+ 35a:	80 91 f2 00 	lds	r24, 0x00F2
+ 35e:	8b 7f       	andi	r24, 0xFB	; 251
+            PMCR = 0x80;
+ 360:	90 93 f2 00 	sts	0x00F2, r25
+            PMCR = btmp;
+ 364:	80 93 f2 00 	sts	0x00F2, r24
+ 368:	08 95       	ret
+
+0000036a <sysClockPrescale>:
+//      - prescale options:
+//              SYSCLK_DIV_0 ~ SYSCLK_DIV_128
+// ----------------------------------------------------------------------
+inline void sysClockPrescale(uint8_t divn)
+{
+    uint8_t btmp = 0x80 | (divn & 0xf);
+ 36a:	8f 70       	andi	r24, 0x0F	; 15
+ 36c:	80 68       	ori	r24, 0x80	; 128
+    CLKPR = 0x80;
+ 36e:	e1 e6       	ldi	r30, 0x61	; 97
+ 370:	f0 e0       	ldi	r31, 0x00	; 0
+ 372:	90 e8       	ldi	r25, 0x80	; 128
+ 374:	90 83       	st	Z, r25
+    CLKPR = btmp;
+ 376:	80 83       	st	Z, r24
+}
+ 378:	08 95       	ret
+
+0000037a <utoa>:
+ 37a:	fb 01       	movw	r30, r22
+ 37c:	9f 01       	movw	r18, r30
+ 37e:	42 30       	cpi	r20, 0x02	; 2
+ 380:	74 f0       	brlt	.+28     	; 0x39e <utoa+0x24>
+ 382:	45 32       	cpi	r20, 0x25	; 37
+ 384:	64 f4       	brge	.+24     	; 0x39e <utoa+0x24>
+ 386:	64 2f       	mov	r22, r20
+ 388:	77 27       	eor	r23, r23
+ 38a:	0e 94 e3 01 	call	0x3c6	; 0x3c6 <__udivmodhi4>
+ 38e:	80 5d       	subi	r24, 0xD0	; 208
+ 390:	8a 33       	cpi	r24, 0x3A	; 58
+ 392:	0c f0       	brlt	.+2      	; 0x396 <utoa+0x1c>
+ 394:	89 5d       	subi	r24, 0xD9	; 217
+ 396:	81 93       	st	Z+, r24
+ 398:	cb 01       	movw	r24, r22
+ 39a:	00 97       	sbiw	r24, 0x00	; 0
+ 39c:	a1 f7       	brne	.-24     	; 0x386 <utoa+0xc>
+ 39e:	10 82       	st	Z, r1
+ 3a0:	c9 01       	movw	r24, r18
+ 3a2:	0c 94 d3 01 	jmp	0x3a6	; 0x3a6 <strrev>
+
+000003a6 <strrev>:
+ 3a6:	dc 01       	movw	r26, r24
+ 3a8:	fc 01       	movw	r30, r24
+ 3aa:	67 2f       	mov	r22, r23
+ 3ac:	71 91       	ld	r23, Z+
+ 3ae:	77 23       	and	r23, r23
+ 3b0:	e1 f7       	brne	.-8      	; 0x3aa <strrev+0x4>
+ 3b2:	32 97       	sbiw	r30, 0x02	; 2
+ 3b4:	04 c0       	rjmp	.+8      	; 0x3be <strrev+0x18>
+ 3b6:	7c 91       	ld	r23, X
+ 3b8:	6d 93       	st	X+, r22
+ 3ba:	70 83       	st	Z, r23
+ 3bc:	62 91       	ld	r22, -Z
+ 3be:	ae 17       	cp	r26, r30
+ 3c0:	bf 07       	cpc	r27, r31
+ 3c2:	c8 f3       	brcs	.-14     	; 0x3b6 <strrev+0x10>
+ 3c4:	08 95       	ret
+
+000003c6 <__udivmodhi4>:
+ 3c6:	aa 1b       	sub	r26, r26
+ 3c8:	bb 1b       	sub	r27, r27
+ 3ca:	51 e1       	ldi	r21, 0x11	; 17
+ 3cc:	07 c0       	rjmp	.+14     	; 0x3dc <__udivmodhi4_ep>
+
+000003ce <__udivmodhi4_loop>:
+ 3ce:	aa 1f       	adc	r26, r26
+ 3d0:	bb 1f       	adc	r27, r27
+ 3d2:	a6 17       	cp	r26, r22
+ 3d4:	b7 07       	cpc	r27, r23
+ 3d6:	10 f0       	brcs	.+4      	; 0x3dc <__udivmodhi4_ep>
+ 3d8:	a6 1b       	sub	r26, r22
+ 3da:	b7 0b       	sbc	r27, r23
+
+000003dc <__udivmodhi4_ep>:
+ 3dc:	88 1f       	adc	r24, r24
+ 3de:	99 1f       	adc	r25, r25
+ 3e0:	5a 95       	dec	r21
+ 3e2:	a9 f7       	brne	.-22     	; 0x3ce <__udivmodhi4_loop>
+ 3e4:	80 95       	com	r24
+ 3e6:	90 95       	com	r25
+ 3e8:	bc 01       	movw	r22, r24
+ 3ea:	cd 01       	movw	r24, r26
+ 3ec:	08 95       	ret
+
+000003ee <_exit>:
+ 3ee:	f8 94       	cli
+
+000003f0 <__stop_program>:
+ 3f0:	ff cf       	rjmp	.-2      	; 0x3f0 <__stop_program>

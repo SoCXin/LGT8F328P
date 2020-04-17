@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>634895076</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\lgt8f328p_misc.c</file>
+      <file>$PROJ_DIR$\lgt8f328p_usart.c</file>
+      <file>$PROJ_DIR$\lgt8f328p_intr.c</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\lgt8f328p_misc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\lgt8f328p_misc.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\lgt8f328p_usart.pbd</file>
+      <file>$PROJ_DIR$\Debug\Exe\lgt8f328p_usart.d90</file>
+      <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+      <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom328p.inc</file>
+      <file>$PROJ_DIR$\lgt8f328p_usart.h</file>
+      <file>$PROJ_DIR$\lgt8f328p_misc.h</file>
+      <file>$TOOLKIT_DIR$\inc\iom328p.h</file>
+      <file>$PROJ_DIR$\lgt8f328p_conf.h</file>
+      <file>$PROJ_DIR$\lgt8f328p_spec.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\lgt8f328p_intr.r90</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\lgt8f328p_usart.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\lgt8f328p_intr.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\lgt8f328p_usart.pbi</file>
+      <file>$PROJ_DIR$\lgt8f328p_stdbits.h</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\lgt8f328p_misc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 4</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 7</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13 14 10 11 23 19 18 16</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\lgt8f328p_usart.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 22</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 20</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23 15 13 19 14 10 11 12 18 16</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\lgt8f328p_intr.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 17</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23 15 14 10 13 19 11 12 18 16</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 6</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 5</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23 15 14 10 13 19 11 12 18 16</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 9</file>
+        </tool>
+      </outputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

@@ -1,0 +1,802 @@
+
+lgt8f328p_adc.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000384  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000012  00800100  00800100  000003f8  2**0
+                  ALLOC
+  2 .debug_aranges 00000080  00000000  00000000  000003f8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 000001c8  00000000  00000000  00000478  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000006bd  00000000  00000000  00000640  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 000003d0  00000000  00000000  00000cfd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   00000754  00000000  00000000  000010cd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000190  00000000  00000000  00001824  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    0000029a  00000000  00000000  000019b4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    000001cb  00000000  00000000  00001c4e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000060  00000000  00000000  00001e19  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   8:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  10:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  14:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  18:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  1c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  20:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  24:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  28:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  2c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  30:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  34:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  38:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  3c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  40:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  44:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  48:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  4c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  50:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  54:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  58:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  5c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  60:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  64:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_clear_bss>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
+
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	a2 31       	cpi	r26, 0x12	; 18
+  80:	b1 07       	cpc	r27, r17
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	0e 94 dd 00 	call	0x1ba	; 0x1ba <main>
+  88:	0c 94 c0 01 	jmp	0x380	; 0x380 <_exit>
+
+0000008c <__bad_interrupt>:
+  8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000090 <adcInit>:
+// ----------------------------------------------------------------------
+void adcInit()
+{
+	// update calibration if needed
+#if (ADC_REFS == ADC_REFS_2V048)
+	VCAL = VCAL2;	// calibration for 2.048V
+  90:	80 91 ce 00 	lds	r24, 0x00CE
+  94:	80 93 c8 00 	sts	0x00C8, r24
+	VCAL = VCAL3;	// calibration for 4.096V
+	ADCSRD |= (1 << REFS2);	// See register definition of ADCSRD and ADMUX
+#endif
+
+	// (optional) write to clear ADIF
+	ADCSRA = 0x10;
+  98:	ea e7       	ldi	r30, 0x7A	; 122
+  9a:	f0 e0       	ldi	r31, 0x00	; 0
+  9c:	80 e1       	ldi	r24, 0x10	; 16
+  9e:	80 83       	st	Z, r24
+
+	// set voltage reference
+#if (ADC_REFS == ADC_REFS_4V096)
+	ADMUX = ADC_REFS_DEFV << REFS0;
+#else
+ 	ADMUX = ADC_REFS << REFS0;
+  a0:	80 e8       	ldi	r24, 0x80	; 128
+  a2:	80 93 7c 00 	sts	0x007C, r24
+#endif
+
+	// ADC Control and Status Register A
+	ADCSRA = (ADC_ADATEN  << ADATE) |	// auto-trigger bit 
+  a6:	83 e0       	ldi	r24, 0x03	; 3
+  a8:	80 83       	st	Z, r24
+#if (ADC_ADATEN == 1)
+	ADCSRB = ADC_ADTS;	// source select for auto-trigger mode
+#endif
+
+	// Enable ADC
+	ADCSRA |= (1 << ADEN);
+  aa:	80 81       	ld	r24, Z
+  ac:	80 68       	ori	r24, 0x80	; 128
+  ae:	80 83       	st	Z, r24
+}
+  b0:	08 95       	ret
+
+000000b2 <adcSoftStart>:
+// public: start adc coversation by software
+// ----------------------------------------------------------------------
+void adcSoftStart()
+{
+	// set ADSC bit to start a conversation
+	ADCSRA |= (1 << ADSC);
+  b2:	80 91 7a 00 	lds	r24, 0x007A
+  b6:	80 64       	ori	r24, 0x40	; 64
+  b8:	80 93 7a 00 	sts	0x007A, r24
+
+	// wait until it's done
+	while((ADCSRA & (1 << ADSC)) != 0x00);
+  bc:	80 91 7a 00 	lds	r24, 0x007A
+  c0:	86 fd       	sbrc	r24, 6
+  c2:	fc cf       	rjmp	.-8      	; 0xbc <adcSoftStart+0xa>
+}
+  c4:	08 95       	ret
+
+000000c6 <adcSetChannel>:
+// ----------------------------------------------------------------------
+// public: select a different ADC's channel
+// ----------------------------------------------------------------------
+void adcSetChannel(uint8_t chMUX)
+{
+	ADMUX &= 0xE0;		// cleanup CHMUX bits
+  c6:	90 91 7c 00 	lds	r25, 0x007C
+  ca:	90 7e       	andi	r25, 0xE0	; 224
+  cc:	90 93 7c 00 	sts	0x007C, r25
+	ADMUX |= (chMUX & 0x1F);	// set target CHMUX
+  d0:	20 91 7c 00 	lds	r18, 0x007C
+  d4:	98 2f       	mov	r25, r24
+  d6:	9f 71       	andi	r25, 0x1F	; 31
+  d8:	92 2b       	or	r25, r18
+  da:	90 93 7c 00 	sts	0x007C, r25
+
+	// select DAP channel
+	if(chMUX == ADC_CHMUX_DAP)
+  de:	8f 33       	cpi	r24, 0x3F	; 63
+  e0:	21 f4       	brne	.+8      	; 0xea <adcSetChannel+0x24>
+		ADCSRC |= (1 << DIFS);
+  e2:	80 91 7d 00 	lds	r24, 0x007D
+  e6:	82 60       	ori	r24, 0x02	; 2
+  e8:	03 c0       	rjmp	.+6      	; 0xf0 <adcSetChannel+0x2a>
+	else
+		ADCSRC &= ~(1 << DIFS);
+  ea:	80 91 7d 00 	lds	r24, 0x007D
+  ee:	8d 7f       	andi	r24, 0xFD	; 253
+  f0:	80 93 7d 00 	sts	0x007D, r24
+  f4:	08 95       	ret
+
+000000f6 <adcSetReference>:
+
+// ----------------------------------------------------------------------
+// public: set ADC's reference dynamically
+// ----------------------------------------------------------------------
+void adcSetReference(uint8_t adcREFS)
+{
+  f6:	98 2f       	mov	r25, r24
+	// update calibration if needed
+	if(adcREFS == ADC_REFS_4V096) {
+  f8:	84 30       	cpi	r24, 0x04	; 4
+  fa:	61 f4       	brne	.+24     	; 0x114 <adcSetReference+0x1e>
+		VCAL = VCAL3;	// calibration for 4.096V
+  fc:	80 91 cc 00 	lds	r24, 0x00CC
+ 100:	80 93 c8 00 	sts	0x00C8, r24
+		ADCSRD |= (1 << REFS2);	// See register definition of ADCSRD and ADMUX
+ 104:	80 91 ad 00 	lds	r24, 0x00AD
+ 108:	80 64       	ori	r24, 0x40	; 64
+ 10a:	80 93 ad 00 	sts	0x00AD, r24
+		VCAL = VCAL1;	// calibration for 1.024V
+	} 
+
+	// set voltage reference
+	if(adcREFS == ADC_REFS_4V096)
+		ADMUX = ADC_REFS_DEFV << REFS0;
+ 10e:	10 92 7c 00 	sts	0x007C, r1
+ 112:	08 95       	ret
+{
+	// update calibration if needed
+	if(adcREFS == ADC_REFS_4V096) {
+		VCAL = VCAL3;	// calibration for 4.096V
+		ADCSRD |= (1 << REFS2);	// See register definition of ADCSRD and ADMUX
+	} else if (adcREFS == ADC_REFS_2V048) {
+ 114:	82 30       	cpi	r24, 0x02	; 2
+ 116:	19 f4       	brne	.+6      	; 0x11e <adcSetReference+0x28>
+		VCAL = VCAL2;	// calibration for 2.048V
+ 118:	80 91 ce 00 	lds	r24, 0x00CE
+ 11c:	02 c0       	rjmp	.+4      	; 0x122 <adcSetReference+0x2c>
+	} else {
+		VCAL = VCAL1;	// calibration for 1.024V
+ 11e:	80 91 cd 00 	lds	r24, 0x00CD
+ 122:	80 93 c8 00 	sts	0x00C8, r24
+
+	// set voltage reference
+	if(adcREFS == ADC_REFS_4V096)
+		ADMUX = ADC_REFS_DEFV << REFS0;
+	else
+ 		ADMUX = adcREFS << REFS0;
+ 126:	92 95       	swap	r25
+ 128:	99 0f       	add	r25, r25
+ 12a:	99 0f       	add	r25, r25
+ 12c:	90 7c       	andi	r25, 0xC0	; 192
+ 12e:	90 93 7c 00 	sts	0x007C, r25
+ 132:	08 95       	ret
+
+00000134 <adcRead>:
+
+// ----------------------------------------------------------------------
+// private : start ADC conversation and return back its result
+// ----------------------------------------------------------------------
+uint16_t adcRead()
+{
+ 134:	df 93       	push	r29
+ 136:	cf 93       	push	r28
+ 138:	0f 92       	push	r0
+ 13a:	cd b7       	in	r28, 0x3d	; 61
+ 13c:	de b7       	in	r29, 0x3e	; 62
+	volatile uint8_t tmp = 0;
+ 13e:	19 82       	std	Y+1, r1	; 0x01
+// public: start adc coversation by software
+// ----------------------------------------------------------------------
+void adcSoftStart()
+{
+	// set ADSC bit to start a conversation
+	ADCSRA |= (1 << ADSC);
+ 140:	80 91 7a 00 	lds	r24, 0x007A
+ 144:	80 64       	ori	r24, 0x40	; 64
+ 146:	80 93 7a 00 	sts	0x007A, r24
+
+	// wait until it's done
+	while((ADCSRA & (1 << ADSC)) != 0x00);
+ 14a:	80 91 7a 00 	lds	r24, 0x007A
+ 14e:	86 fd       	sbrc	r24, 6
+ 150:	fc cf       	rjmp	.-8      	; 0x14a <adcRead+0x16>
+{
+	volatile uint8_t tmp = 0;
+
+	adcSoftStart();
+
+	tmp = ADCL;			// Be care: read low byte first, then high byte
+ 152:	80 91 78 00 	lds	r24, 0x0078
+ 156:	89 83       	std	Y+1, r24	; 0x01
+	return (ADCH << 8) | tmp;
+ 158:	40 91 79 00 	lds	r20, 0x0079
+ 15c:	29 81       	ldd	r18, Y+1	; 0x01
+ 15e:	94 2f       	mov	r25, r20
+ 160:	80 e0       	ldi	r24, 0x00	; 0
+ 162:	30 e0       	ldi	r19, 0x00	; 0
+ 164:	28 2b       	or	r18, r24
+ 166:	39 2b       	or	r19, r25
+}
+ 168:	c9 01       	movw	r24, r18
+ 16a:	0f 90       	pop	r0
+ 16c:	cf 91       	pop	r28
+ 16e:	df 91       	pop	r29
+ 170:	08 95       	ret
+
+00000172 <adcReadChannel>:
+// ----------------------------------------------------------------------
+// public: return adc's value of a given channel
+//		with offset/gain error correction
+// ----------------------------------------------------------------------
+uint16_t adcReadChannel(uint8_t chMUX)
+{
+ 172:	ef 92       	push	r14
+ 174:	ff 92       	push	r15
+ 176:	0f 93       	push	r16
+ 178:	1f 93       	push	r17
+	uint16_t pVal, nVal;
+
+	// set target channel
+	adcSetChannel(chMUX);
+ 17a:	0e 94 63 00 	call	0xc6	; 0xc6 <adcSetChannel>
+
+	// SPN1 conversation
+	ADCSRC |= (1 << SPN);
+ 17e:	0d e7       	ldi	r16, 0x7D	; 125
+ 180:	10 e0       	ldi	r17, 0x00	; 0
+ 182:	f8 01       	movw	r30, r16
+ 184:	80 81       	ld	r24, Z
+ 186:	80 62       	ori	r24, 0x20	; 32
+ 188:	80 83       	st	Z, r24
+	nVal = adcRead();
+ 18a:	0e 94 9a 00 	call	0x134	; 0x134 <adcRead>
+ 18e:	7c 01       	movw	r14, r24
+
+	// SPN0 conversation
+	ADCSRC &= ~(1 << SPN);
+ 190:	f8 01       	movw	r30, r16
+ 192:	80 81       	ld	r24, Z
+ 194:	8f 7d       	andi	r24, 0xDF	; 223
+ 196:	80 83       	st	Z, r24
+	pVal = adcRead();
+ 198:	0e 94 9a 00 	call	0x134	; 0x134 <adcRead>
+
+	// average
+	pVal = (pVal + nVal) >> 1;
+ 19c:	9c 01       	movw	r18, r24
+ 19e:	2e 0d       	add	r18, r14
+ 1a0:	3f 1d       	adc	r19, r15
+
+	// gain-error correction
+	pVal -= (pVal >> 7);
+ 1a2:	83 2f       	mov	r24, r19
+ 1a4:	99 27       	eor	r25, r25
+	// SPN0 conversation
+	ADCSRC &= ~(1 << SPN);
+	pVal = adcRead();
+
+	// average
+	pVal = (pVal + nVal) >> 1;
+ 1a6:	36 95       	lsr	r19
+ 1a8:	27 95       	ror	r18
+
+	// gain-error correction
+	pVal -= (pVal >> 7);
+ 1aa:	28 1b       	sub	r18, r24
+ 1ac:	39 0b       	sbc	r19, r25
+
+	return pVal;
+}
+ 1ae:	c9 01       	movw	r24, r18
+ 1b0:	1f 91       	pop	r17
+ 1b2:	0f 91       	pop	r16
+ 1b4:	ff 90       	pop	r15
+ 1b6:	ef 90       	pop	r14
+ 1b8:	08 95       	ret
+
+000001ba <main>:
+uint16_t adcTmp[5];
+
+// Main program
+// ===================================================================
+int main()
+{
+ 1ba:	cf 93       	push	r28
+ 1bc:	df 93       	push	r29
+    // ==============================================================
+    // DO NOT forget to set right F_CPU definition according to 
+    // your system clock settings
+    // F_CPU is defined inside of 'lgt8f328p_misc.h'
+    // =============================================================
+    sysClockPrescale(SYSCLK_DIV_2);  
+ 1be:	81 e0       	ldi	r24, 0x01	; 1
+ 1c0:	0e 94 b8 01 	call	0x370	; 0x370 <sysClockPrescale>
+	// ADC reference: internal 2.048V
+	// ADC sample clock: 512KHz (4MHz system clock with 1/8 prescaler)
+	// ADC interrupt: disabled
+	// ADC auto-trigger mode: disabled
+	// ===============================================================
+	adcInit();
+ 1c4:	0e 94 48 00 	call	0x90	; 0x90 <adcInit>
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+ 1c8:	c0 e9       	ldi	r28, 0x90	; 144
+ 1ca:	d1 e0       	ldi	r29, 0x01	; 1
+
+	while(1)
+	{
+		adcTmp[4] = adcReadChannel(ADC_CHMUX_ADC4);
+ 1cc:	84 e0       	ldi	r24, 0x04	; 4
+ 1ce:	0e 94 b9 00 	call	0x172	; 0x172 <adcReadChannel>
+ 1d2:	90 93 0f 01 	sts	0x010F, r25
+ 1d6:	80 93 0e 01 	sts	0x010E, r24
+		adcTmp[3] = adcReadChannel(ADC_CHMUX_ADC4);
+ 1da:	84 e0       	ldi	r24, 0x04	; 4
+ 1dc:	0e 94 b9 00 	call	0x172	; 0x172 <adcReadChannel>
+ 1e0:	90 93 0d 01 	sts	0x010D, r25
+ 1e4:	80 93 0c 01 	sts	0x010C, r24
+		adcTmp[2] = adcReadChannel(ADC_CHMUX_ADC4);
+ 1e8:	84 e0       	ldi	r24, 0x04	; 4
+ 1ea:	0e 94 b9 00 	call	0x172	; 0x172 <adcReadChannel>
+ 1ee:	90 93 0b 01 	sts	0x010B, r25
+ 1f2:	80 93 0a 01 	sts	0x010A, r24
+		adcTmp[1] = adcReadChannel(ADC_CHMUX_ADC4);
+ 1f6:	84 e0       	ldi	r24, 0x04	; 4
+ 1f8:	0e 94 b9 00 	call	0x172	; 0x172 <adcReadChannel>
+ 1fc:	90 93 09 01 	sts	0x0109, r25
+ 200:	80 93 08 01 	sts	0x0108, r24
+		adcTmp[0] = adcReadChannel(ADC_CHMUX_ADC4);
+ 204:	84 e0       	ldi	r24, 0x04	; 4
+ 206:	0e 94 b9 00 	call	0x172	; 0x172 <adcReadChannel>
+ 20a:	90 93 07 01 	sts	0x0107, r25
+ 20e:	80 93 06 01 	sts	0x0106, r24
+
+		adcVal = 0;
+		for(i = 0; i < 4; i++)
+			adcVal += adcTmp[i];
+ 212:	20 91 08 01 	lds	r18, 0x0108
+ 216:	30 91 09 01 	lds	r19, 0x0109
+ 21a:	82 0f       	add	r24, r18
+ 21c:	93 1f       	adc	r25, r19
+ 21e:	20 91 0a 01 	lds	r18, 0x010A
+ 222:	30 91 0b 01 	lds	r19, 0x010B
+ 226:	82 0f       	add	r24, r18
+ 228:	93 1f       	adc	r25, r19
+	
+		// average of 4x oversample	
+		adcVal >>= 2; 
+
+		// covert to real voltage (unit: mV)
+		adcVal >>= 1;
+ 22a:	20 91 0c 01 	lds	r18, 0x010C
+ 22e:	30 91 0d 01 	lds	r19, 0x010D
+ 232:	82 0f       	add	r24, r18
+ 234:	93 1f       	adc	r25, r19
+ 236:	23 e0       	ldi	r18, 0x03	; 3
+ 238:	96 95       	lsr	r25
+ 23a:	87 95       	ror	r24
+ 23c:	2a 95       	dec	r18
+ 23e:	e1 f7       	brne	.-8      	; 0x238 <main+0x7e>
+ 240:	90 93 11 01 	sts	0x0111, r25
+ 244:	80 93 10 01 	sts	0x0110, r24
+ 248:	80 e1       	ldi	r24, 0x10	; 16
+ 24a:	97 e2       	ldi	r25, 0x27	; 39
+ 24c:	fe 01       	movw	r30, r28
+ 24e:	31 97       	sbiw	r30, 0x01	; 1
+ 250:	f1 f7       	brne	.-4      	; 0x24e <main+0x94>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 252:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 254:	d9 f7       	brne	.-10     	; 0x24c <main+0x92>
+ 256:	ba cf       	rjmp	.-140    	; 0x1cc <main+0x12>
+
+00000258 <usartInit>:
+// ----------------------------------------------------------------------
+// public: usart module initialization
+// ----------------------------------------------------------------------
+void usartInit(void)
+{
+	UCSR0A 	= (USART_MPCM0 << MPCM0) | (USART_U2X0 << U2X0);
+ 258:	10 92 c0 00 	sts	0x00C0, r1
+
+	UCSR0C = (USART_UMSEL0 << UMSEL00 ) | (USART_UPM0 << UPM00) | (USART_USBS0 << USBS0) |\
+ 25c:	86 e0       	ldi	r24, 0x06	; 6
+ 25e:	80 93 c2 00 	sts	0x00C2, r24
+			((USART_UCSZ0 & 3) << UCSZ00 ) | (USART_UCPOL0 << UCPOL0);
+
+	UCSR0B = (USART_RXEN << RXEN0) | (USART_TXEN << TXEN0) | (USART_UCSZ0 & 0x4) |\
+ 262:	88 e1       	ldi	r24, 0x18	; 24
+ 264:	80 93 c1 00 	sts	0x00C1, r24
+			(USART_RXC << RXCIE0) | (USART_TXC << TXCIE0) | (USART_UDRE << UDRIE0);
+	
+	UBRR0H = (USART_UBRR >> 8) & 0xff;
+ 268:	10 92 c5 00 	sts	0x00C5, r1
+	UBRR0L = USART_UBRR & 0xff;
+ 26c:	83 e3       	ldi	r24, 0x33	; 51
+ 26e:	80 93 c4 00 	sts	0x00C4, r24
+}
+ 272:	08 95       	ret
+
+00000274 <usartPutChar>:
+
+// ----------------------------------------------------------------------
+// public: send a char
+// ----------------------------------------------------------------------
+void usartPutChar(uint8_t u8Char)
+{
+ 274:	98 2f       	mov	r25, r24
+	while(!(UCSR0A & (1 << UDRE0)));
+ 276:	80 91 c0 00 	lds	r24, 0x00C0
+ 27a:	85 ff       	sbrs	r24, 5
+ 27c:	fc cf       	rjmp	.-8      	; 0x276 <usartPutChar+0x2>
+
+	UDR0 = u8Char;
+ 27e:	90 93 c6 00 	sts	0x00C6, r25
+}
+ 282:	08 95       	ret
+
+00000284 <usartGetChar>:
+// ----------------------------------------------------------------------
+// public: get and return a char
+// ----------------------------------------------------------------------
+uint8_t usartGetChar()
+{
+	while(!(UCSR0A & (1 << RXC0)));
+ 284:	80 91 c0 00 	lds	r24, 0x00C0
+ 288:	87 ff       	sbrs	r24, 7
+ 28a:	fc cf       	rjmp	.-8      	; 0x284 <usartGetChar>
+
+	return (uint8_t)UDR0;
+ 28c:	80 91 c6 00 	lds	r24, 0x00C6
+}
+ 290:	08 95       	ret
+
+00000292 <usartPutStr>:
+
+// ----------------------------------------------------------------------
+// public: send a string
+// ----------------------------------------------------------------------
+void usartPutStr(char *pStr)
+{
+ 292:	fc 01       	movw	r30, r24
+ 294:	07 c0       	rjmp	.+14     	; 0x2a4 <usartPutStr+0x12>
+// ----------------------------------------------------------------------
+// public: send a char
+// ----------------------------------------------------------------------
+void usartPutChar(uint8_t u8Char)
+{
+	while(!(UCSR0A & (1 << UDRE0)));
+ 296:	80 91 c0 00 	lds	r24, 0x00C0
+ 29a:	85 ff       	sbrs	r24, 5
+ 29c:	fc cf       	rjmp	.-8      	; 0x296 <usartPutStr+0x4>
+{
+	char *p = pStr;
+
+	while(*p)
+	{
+		usartPutChar(*p++);
+ 29e:	31 96       	adiw	r30, 0x01	; 1
+// ----------------------------------------------------------------------
+void usartPutChar(uint8_t u8Char)
+{
+	while(!(UCSR0A & (1 << UDRE0)));
+
+	UDR0 = u8Char;
+ 2a0:	90 93 c6 00 	sts	0x00C6, r25
+// ----------------------------------------------------------------------
+void usartPutStr(char *pStr)
+{
+	char *p = pStr;
+
+	while(*p)
+ 2a4:	90 81       	ld	r25, Z
+ 2a6:	99 23       	and	r25, r25
+ 2a8:	b1 f7       	brne	.-20     	; 0x296 <usartPutStr+0x4>
+	{
+		usartPutChar(*p++);
+	}
+}
+ 2aa:	08 95       	ret
+
+000002ac <sysCLRI>:
+// ----------------------------------------------------------------------
+// public: backup SREG register, then disable global interrupt
+// ----------------------------------------------------------------------
+void sysCLRI()
+{
+    __bk_sreg = SREG;
+ 2ac:	8f b7       	in	r24, 0x3f	; 63
+ 2ae:	80 93 00 01 	sts	0x0100, r24
+    cli();
+ 2b2:	f8 94       	cli
+}
+ 2b4:	08 95       	ret
+
+000002b6 <sysRESI>:
+// ----------------------------------------------------------------------
+// public: restore SREG register, so restore previous interrupt settings
+// ----------------------------------------------------------------------
+void sysRESI()
+{
+    SREG = __bk_sreg;
+ 2b6:	80 91 00 01 	lds	r24, 0x0100
+ 2ba:	8f bf       	out	0x3f, r24	; 63
+}
+ 2bc:	08 95       	ret
+
+000002be <sysSWDDisable>:
+// ----------------------------------------------------------------------
+// public: disalbe SWD/SWC interface to release PE0/2
+// ----------------------------------------------------------------------
+inline void sysSWDDisable()
+{
+    MCUSR = 0xff;
+ 2be:	8f ef       	ldi	r24, 0xFF	; 255
+ 2c0:	84 bf       	out	0x34, r24	; 52
+    MCUSR = 0xff;
+ 2c2:	84 bf       	out	0x34, r24	; 52
+}
+ 2c4:	08 95       	ret
+
+000002c6 <sysSWDEnable>:
+
+inline void sysSWDEnable()
+{
+    MCUSR = 0x7f;
+ 2c6:	8f e7       	ldi	r24, 0x7F	; 127
+ 2c8:	84 bf       	out	0x34, r24	; 52
+    MCUSR = 0x7f;
+ 2ca:	84 bf       	out	0x34, r24	; 52
+}
+ 2cc:	08 95       	ret
+
+000002ce <sysAVREFDisable>:
+// ----------------------------------------------------------------------
+// public: disable AVREF to release PE6 for GPIO
+// ----------------------------------------------------------------------
+void sysAVREFDisable()
+{
+    uint8_t btmp = PMX2 | (1 << E6EN);
+ 2ce:	e0 ef       	ldi	r30, 0xF0	; 240
+ 2d0:	f0 e0       	ldi	r31, 0x00	; 0
+ 2d2:	80 81       	ld	r24, Z
+ 2d4:	82 60       	ori	r24, 0x02	; 2
+    PMX2 = 0x80;
+ 2d6:	90 e8       	ldi	r25, 0x80	; 128
+ 2d8:	90 83       	st	Z, r25
+    PMX2 = btmp;
+ 2da:	80 83       	st	Z, r24
+}
+ 2dc:	08 95       	ret
+
+000002de <sysAVREFEnable>:
+
+void sysAVREFEnable()
+{
+    uint8_t btmp = PMX2 & ~(1 << E6EN);
+ 2de:	e0 ef       	ldi	r30, 0xF0	; 240
+ 2e0:	f0 e0       	ldi	r31, 0x00	; 0
+ 2e2:	80 81       	ld	r24, Z
+ 2e4:	8d 7f       	andi	r24, 0xFD	; 253
+    PMX2 = 0x80;
+ 2e6:	90 e8       	ldi	r25, 0x80	; 128
+ 2e8:	90 83       	st	Z, r25
+    PMX2 = btmp;
+ 2ea:	80 83       	st	Z, r24
+}
+ 2ec:	08 95       	ret
+
+000002ee <sysEXRESETDisable>:
+// ----------------------------------------------------------------------
+// public: disable EXRESET to release PC6 for GPIO
+// ----------------------------------------------------------------------
+void sysEXRESETDisable()
+{
+    uint8_t btmp = PMX2 | (1 << C6EN);
+ 2ee:	e0 ef       	ldi	r30, 0xF0	; 240
+ 2f0:	f0 e0       	ldi	r31, 0x00	; 0
+ 2f2:	80 81       	ld	r24, Z
+ 2f4:	81 60       	ori	r24, 0x01	; 1
+    PMX2 = 0x80;
+ 2f6:	90 e8       	ldi	r25, 0x80	; 128
+ 2f8:	90 83       	st	Z, r25
+    PMX2 = btmp;
+ 2fa:	80 83       	st	Z, r24
+}
+ 2fc:	08 95       	ret
+
+000002fe <sysEXRESETEnable>:
+
+void sysEXRESETEnable()
+{
+    uint8_t btmp = PMX2 & ~(1 << C6EN);
+ 2fe:	e0 ef       	ldi	r30, 0xF0	; 240
+ 300:	f0 e0       	ldi	r31, 0x00	; 0
+ 302:	80 81       	ld	r24, Z
+ 304:	8e 7f       	andi	r24, 0xFE	; 254
+    PMX2 = 0x80;
+ 306:	90 e8       	ldi	r25, 0x80	; 128
+ 308:	90 83       	st	Z, r25
+    PMX2 = btmp;
+ 30a:	80 83       	st	Z, r24
+}
+ 30c:	08 95       	ret
+
+0000030e <sysClockSource>:
+// ----------------------------------------------------------------------
+void sysClockSource(uint8_t mode)
+{
+    uint8_t btmp;
+  
+    if(mode == EXT_OSC) {
+ 30e:	81 30       	cpi	r24, 0x01	; 1
+ 310:	c1 f4       	brne	.+48     	; 0x342 <sysClockSource+0x34>
+            // enable external crystal
+            btmp = PMCR | 0x04;
+ 312:	80 91 f2 00 	lds	r24, 0x00F2
+ 316:	84 60       	ori	r24, 0x04	; 4
+            PMCR = 0x80;
+ 318:	90 e8       	ldi	r25, 0x80	; 128
+ 31a:	90 93 f2 00 	sts	0x00F2, r25
+            PMCR = btmp;
+ 31e:	80 93 f2 00 	sts	0x00F2, r24
+    can be achieved.
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+ 322:	8a e6       	ldi	r24, 0x6A	; 106
+ 324:	8a 95       	dec	r24
+ 326:	f1 f7       	brne	.-4      	; 0x324 <sysClockSource+0x16>
+            
+            // waiting for crystal stable
+            _delay_us(20);
+
+            // switch to external crystal
+            btmp = (PMCR & 0x9f) | 0x20;
+ 328:	80 91 f2 00 	lds	r24, 0x00F2
+ 32c:	8f 79       	andi	r24, 0x9F	; 159
+ 32e:	80 62       	ori	r24, 0x20	; 32
+            PMCR = 0x80;
+ 330:	90 93 f2 00 	sts	0x00F2, r25
+            PMCR = btmp;
+ 334:	80 93 f2 00 	sts	0x00F2, r24
+
+            // set to right prescale
+            CLKPR = 0x80;
+ 338:	90 93 61 00 	sts	0x0061, r25
+            CLKPR = 0x00;	
+ 33c:	10 92 61 00 	sts	0x0061, r1
+ 340:	08 95       	ret
+    } else if(mode == INT_OSC) {
+ 342:	88 23       	and	r24, r24
+ 344:	a1 f4       	brne	.+40     	; 0x36e <sysClockSource+0x60>
+            // prescaler settings
+            CLKPR = 0x80;
+ 346:	90 e8       	ldi	r25, 0x80	; 128
+ 348:	90 93 61 00 	sts	0x0061, r25
+            CLKPR = 0x01;	
+ 34c:	81 e0       	ldi	r24, 0x01	; 1
+ 34e:	80 93 61 00 	sts	0x0061, r24
+
+            // switch to internal crystal
+            btmp = PMCR & 0x9f;
+ 352:	80 91 f2 00 	lds	r24, 0x00F2
+ 356:	8f 79       	andi	r24, 0x9F	; 159
+            PMCR = 0x80;
+ 358:	90 93 f2 00 	sts	0x00F2, r25
+            PMCR = btmp;
+ 35c:	80 93 f2 00 	sts	0x00F2, r24
+
+            // disable external crystal
+            btmp = PMCR & 0xfb;
+ 360:	80 91 f2 00 	lds	r24, 0x00F2
+ 364:	8b 7f       	andi	r24, 0xFB	; 251
+            PMCR = 0x80;
+ 366:	90 93 f2 00 	sts	0x00F2, r25
+            PMCR = btmp;
+ 36a:	80 93 f2 00 	sts	0x00F2, r24
+ 36e:	08 95       	ret
+
+00000370 <sysClockPrescale>:
+//      - prescale options:
+//              SYSCLK_DIV_0 ~ SYSCLK_DIV_128
+// ----------------------------------------------------------------------
+inline void sysClockPrescale(uint8_t divn)
+{
+    uint8_t btmp = 0x80 | (divn & 0xf);
+ 370:	8f 70       	andi	r24, 0x0F	; 15
+ 372:	80 68       	ori	r24, 0x80	; 128
+    CLKPR = 0x80;
+ 374:	e1 e6       	ldi	r30, 0x61	; 97
+ 376:	f0 e0       	ldi	r31, 0x00	; 0
+ 378:	90 e8       	ldi	r25, 0x80	; 128
+ 37a:	90 83       	st	Z, r25
+    CLKPR = btmp;
+ 37c:	80 83       	st	Z, r24
+}
+ 37e:	08 95       	ret
+
+00000380 <_exit>:
+ 380:	f8 94       	cli
+
+00000382 <__stop_program>:
+ 382:	ff cf       	rjmp	.-2      	; 0x382 <__stop_program>
