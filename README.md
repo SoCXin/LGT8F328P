@@ -1,14 +1,14 @@
-﻿# [LGT8F328P](https://github.com/sochub/LGT8F328P) 
+﻿# [LGT8F328P](https://github.com/SoCXin/LGT8F328P) 
 
-[![sites](http://182.61.61.133/link/resources/SoC.png)](https://stop.stops.top) 
+[![sites](http://182.61.61.133/link/resources/SoC.png)](http://SoC.Xin)  
 
-#### [Vendor](https://github.com/sochub/Vendor)：[LogicGreen](http://www.lgtic.com/)
-#### [Core](https://github.com/sochub/8051)：[E8051](https://github.com/sochub/8051)
-#### [Level](https://github.com/sochub/Level)：32MHz 
+#### [Vendor](https://github.com/SoCXin/Vendor)：[LogicGreen](http://www.lgtic.com/)
+#### [Core](https://github.com/SoCXin/AVR)：[AVR](https://github.com/SoCXin/AVR)
+#### [Level](https://github.com/SoCXin/Level)：32MHz 
 
-## [LGT8F328P简介](https://github.com/sochub/LGT8F328P/wiki)
+## [LGT8F328P简介](https://github.com/SoCXin/LGT8F328P/wiki)
 
-[LGT8F328P](https://github.com/sochub/LGT8F328P) 是一款兼容Arduino产品，LogicGreen基于ATMega328P的架构进行了增强，最大支持32MHz工作频率，16位数字运算加上器(DSC)。
+[LGT8F328P](https://github.com/SoCXin/LGT8F328P) 是一款兼容Arduino产品，LogicGreen基于ATMega328P的架构进行了增强，最大支持32MHz工作频率，16位数字运算加上器(DSC)。
 
 在1.8V – 5.5V的工作范围内, 可运行在最高32MHz的核心频率; LGT8F328P内部32K字节FLASH程序存储器, 2K字节数据SRAM。
 
@@ -22,18 +22,18 @@ LGT8F328P微控制器与Atmel ATMega328P微控制器相似，并增加了诸如D
 * LQFP32 – 2.80 RMB ($0.45)
 * LQFP48 – 2.90 RMB ($0.46)
 
-* 芯片封装：QFP32/48, QFN32/SSOP20
+* 芯片封装：QFP32/48  QFN32/SSOP20
 
 [![sites](docs/package.png)](http://www.lgtic.com/lgt8fx8p/) 
 
-### [资源收录](https://github.com/sochub/LGT8F328P)
+### [资源收录](https://github.com/SoCXin/LGT8F328P)
 
 * [参考文档](docs/)
 * [参考资源](src/)
 
 
-### [选型建议](https://github.com/sochub)
+### [选型建议](https://github.com/SoCXin)
 
-[LGT8F328P](https://github.com/sochub/LGT8F328P) 是Arduino低成本和定制化的敲门砖。
+[LGT8F328P](https://github.com/SoCXin/LGT8F328P) 是Arduino低成本和定制化的敲门砖。
 
-##  [SoC资源平台](http://www.qitas.cn)
+###  [SoC芯平台](http://SoC.Xin) 
