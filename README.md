@@ -29,5 +29,5 @@ LGT8F328P微控制器与Atmel ATMega328P微控制器相似，并增加了诸如D
 
 ### [选型建议](https://github.com/SoCXin)
 
-[LGT8F328P](https://github.com/SoCXin/LGT8F328P) 又名LGT8FX8P，是低成本方案的选择
+[LGT8F328P](https://github.com/SoCXin/LGT8F328P) 属于LGT8FX8P flash系列，是低成本方案的选择。
 ###  [SoC芯平台](http://www.SoC.Xin)
