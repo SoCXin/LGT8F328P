@@ -2,11 +2,10 @@
 
 [![sites](http://182.61.61.133/link/resources/SoC.png)](http://www.SoC.Xin)
 
-#### [Vendor](https://github.com/SoCXin/Vendor)：[LogicGreen](http://www.lgtic.com/)
-#### [Core](https://github.com/SoCXin/AVR)：[AVR](https://github.com/SoCXin/AVR)
-#### [Level](https://github.com/SoCXin/Level)：32MHz
+#### [LogicGreen](http://www.lgtic.com/)：[AVR](https://github.com/SoCXin/AVR)
+#### [Level](https://github.com/SoCXin/Level)：32 MHz
 
-## [LGT8F328P简介](https://github.com/SoCXin/LGT8F328P/wiki)
+## [简介](https://github.com/SoCXin/LGT8F328P/wiki)
 
 [LGT8F328P](https://github.com/SoCXin/LGT8F328P) 是一款兼容Arduino产品，LogicGreen基于ATMega328P的架构进行了增强，最大支持32MHz工作频率，16位数字运算加上器(DSC)。
 
@@ -18,7 +17,7 @@ LGT8F328P微控制器与Atmel ATMega328P微控制器相似，并增加了诸如D
 
 [LGT8F328P](https://github.com/SoCXin/LGT8F328P)基于FLASH工艺，定位于中高端8位MCU市场, 内部集成32MHz高精度低温漂(±0.5%)的RC振荡器, 12位高精度ADC转换器, 1.024V/2.048V/4.096V高精度参考电压以及可编程增益差分放大器; LGT8F328P集成2×8位+2×16位定时器, 2个增强PWM发生器, 可产生三组支持死区控制与自动关闭保护的互补PWM. 这些特性使得LGT8F328P非常适用于DC/DC, 马达驱动以及家电等消费类以及工业级应用市场。
 
-* 芯片封装：QFP32/QFP48/QFN32/SSOP20
+* 芯片封装：QFP32/QFP48/SSOP20
 
 [![sites](docs/package.png)](http://www.lgtic.com/lgt8fx8p/)
 
@@ -29,5 +28,6 @@ LGT8F328P微控制器与Atmel ATMega328P微控制器相似，并增加了诸如D
 
 ### [选型建议](https://github.com/SoCXin)
 
-[LGT8F328P](https://github.com/SoCXin/LGT8F328P) 属于LGT8FX8P flash系列，是低成本方案的选择。
-###  [SoC芯平台](http://www.SoC.Xin)
+[LGT8F328P](https://github.com/SoCXin/LGT8F328P) 属于flash工艺产品，类似AVR单片机，实现相关兼容，用于Arduino芯片替换。
+
+###  [探索芯世界 www.SoC.xin](http://www.SoC.Xin)

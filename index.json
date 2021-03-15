@@ -1,0 +1,22 @@
+{
+    "type":"MCU",
+    "name":"LGT8F",
+    "series":["LGT8F328P","LGT8F328D"],
+    "price":[4,8],
+    "description":"LogicGreen Flash RISC 8bit MCU",
+    "peripheral": ["TIM","ADC","DAC","UART","SPI","LDO","PWM"],
+    "package":["QFP48","QFP32","SSOP20"],
+    "encryption": ["UID"],
+    "manufacturer": {
+        "vendor":"LogicGreen",
+        "homepage": "http://www.lgtic.com/lgt8fx8p/"
+    },
+    "url":"http://www.SoC.xin/LGT8F328P",
+    "repo":"https://github.com/SoCXin/LGT8F328P",
+    "Core": {
+        "num": 1,
+        "architecture":"AVR",
+        "Freq":[8,32]
+    },
+    "version":"1.0.0"
+}
